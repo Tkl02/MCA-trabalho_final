@@ -1,23 +1,39 @@
-import undetected_chromedriver as uc
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.by import By
-from time import sleep
+from undetected_chromedriver       import Chrome
+from time                          import sleep
+from selenium.webdriver.common.by  import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support    import expected_conditions as EC
 
-driver = uc.Chrome()
+class Google:
+    def __init__(self) -> None:
+        self.url    = 'https://accounts.google.com/ServiceLogin'
+        self.driver = Chrome(use_subprocess=True); self.driver.get(self.url)
+        self.time   = 10
+    
+    def login(self, email, password):
+        sleep(2)
+        WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.NAME, 'identifier'))).send_keys(f'{email}\n')
+        sleep(2)
+        WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located((By.NAME, 'Passwd'))).send_keys(f'{password}\n')
 
-driver.get('https://accounts.google.com/ServiceLogin?hl=pt-BR&passive=true&continue=https://www.google.com/&ec=GAZAmgQ')
-login = driver.find_element(By.XPATH,'//*[@id="identifierId"]')
-login.send_keys('diasgame006@gmail.com')
-login.send_keys(Keys.ENTER)
-driver.implicitly_wait(10)
-senha = driver.find_element(By.XPATH,'//*[@id="password"]/div[1]/div/div[1]/input')
-senha.send_keys('diasgamerbr0220')
-senha.send_keys(Keys.ENTER)
-driver.implicitly_wait(10)
-# nova aba
-driver.execute_script("window.open('https://calendar.google.com/calendar/u/0/r?pli=1')")
-driver.switch_to.window(driver.window_handles[1])
-driver.implicitly_wait(10)
+        self.code()
 
-driver.close()
-driver.quit()
+    def code(self):
+    # [ ---------- paste your code here ---------- ]
+        sleep(self.time)
+
+    def agenda(self):
+        google = self.driver
+        google.get('https://calendar.google.com/calendar/u/0/r')
+
+                                                          
+
+if __name__ == "__main__":
+    #  ---------- EDIT ----------
+    email = 'diasgame006@gmail.com'
+    password = 'diasgamerbr0220'
+    #  ---------- EDIT ----------                                                                                                                                                         
+    
+    google = Google()
+    google.login(email, password)
+    google.agenda()
