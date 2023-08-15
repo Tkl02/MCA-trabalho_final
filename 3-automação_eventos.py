@@ -177,23 +177,27 @@ def label_e_password(texto):
     return entry
 
 # Criando as labels e entradas de texto
-email_entry = criar_label_e_input("Digite o email de login:")
-password_entry = label_e_password("Digite a senha do respectivo email:")
-title_entry = criar_label_e_input("Digite o título do evento:")
-date_entry = criar_label_e_input("Digite a data na forma xx/xx/xxxx:")
-horario_inicial_entry = criar_label_e_input("Horário Inicial xx:xx :")
-horario_final_entry = criar_label_e_input("Horário Final xx:xx :")
+email_entry = criar_label_e_input("EMAIL")
+password_entry = label_e_password("PASSWORD")
+title_entry = criar_label_e_input("Titulo do Evento")
+date_entry = criar_label_e_input("Data (xx/xx/xxxx)")
+horario_inicial_entry = criar_label_e_input("Horário Inicial (xx:xx) :")
+horario_final_entry = criar_label_e_input("Horário Final (xx:xx)")
 video_chamada_entry = criar_label_e_input("Digite 1 para video chamada ou 2 para presencial:")
 locations_entry = criar_label_e_input("Localização no modelo 'estado cidade rua av bairro num' (caso seja via meet deixe vazia):")
 descricao_reuniao_entry = criar_label_e_input("Descrição da Reunião:")
 
 # Botão para selecionar arquivo
-selecionar_arquivo_button = ttk.Button(window, text="Selecionar arquivo", command=selecionar_arquivo)
-selecionar_arquivo_button.pack(side="left", padx=10, pady=10)
+selecionar_arquivo_button = ttk.Button(window, text="SELECIONAR EMAILS", command=selecionar_arquivo)
+selecionar_arquivo_button.pack(side="left", padx=20, pady=20)
 
 # Botão de salvar
 salvar_button = ttk.Button(window, text="Start", command=salvar_inputs)
-salvar_button.pack(pady=20)
+salvar_button.pack(side="right", padx=30, pady=20)
+
+# Botão de automação avançada
+# salvar_button = ttk.Button(window, text="AUTOMAÇÃO AVANÇADA", command=salvar_inputs)
+# salvar_button.pack(padx=30, pady=20)
 
 # Executando a janela
 window.mainloop()

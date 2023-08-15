@@ -10,7 +10,7 @@ from selenium.webdriver.common.keys import Keys
 # dados pre-difinidos para uso  ----------------------------------------------------------------------------------------
     
 email_for_login = 'diasgame006@gmail.com'
-password_for_login = 'diasgamerbr0220'
+password_for_login = '**************'
 title = 'reunião de tarefas do software'
 date = '25/06/2023'
 horario_inicial = '14:00'
@@ -35,7 +35,7 @@ descrição_reuniao = 'esta reuniao consiste em definir todo o projeto do softwa
 #     local = input('digite a localização da reunião: ')
 
 # lendo emails dentro do arquivo TXT
-archive_emails = 'emails.txt'
+archive_emails = 'email.txt'
 with open(archive_emails, 'r') as file:
     dados = file.read()
 email = dados.replace("[","").replace("]","").replace("'","")
